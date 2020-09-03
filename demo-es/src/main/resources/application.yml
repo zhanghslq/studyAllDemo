@@ -1,0 +1,5 @@
+spring:
+  elasticsearch:
+    rest:
+      uris: http://49.233.189.184:9200
+
