@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jpa?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+
+## jpa相关配置
+  jpa:
+    # 开发阶段可以为true，表存在设false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    # create 每次删除重建
+      # create-drop 用完删表
+      # none 将功能不生效
+      # update 实体类改变，数据表更新
+      # validate 实体和数据表校验
+    # 操作实体对象的时候生成sql语句，false不生成
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
