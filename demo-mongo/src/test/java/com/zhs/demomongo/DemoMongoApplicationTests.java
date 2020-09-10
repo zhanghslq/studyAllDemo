@@ -38,10 +38,13 @@ class DemoMongoApplicationTests {
     @Test
     public void testSave(){
 
-        Article article = new Article();
-        article.setContent("测试啊哈哈");
-        article.setUserId(1L);
-        article.setId(1L);
+        for (int i = 0; i < 90; i++) {
+            Article article = new Article();
+            article.setContent("测试啊哈哈"+i);
+            article.setUserId(1L+i);
+            article.setId(1L+i);
+            commentRepository.save(article);
+        }
 
     }
     @Test
@@ -62,6 +65,12 @@ class DemoMongoApplicationTests {
         Page<Article> page = commentRepository.findAll(pageRequest);
         List<Article> content = page.getContent();
         System.out.println(content);
+    }
+
+    @Test
+    public void testFindByContent(){
+        List<Article> list = commentRepository.findAllByContentLike("测试啊哈哈");
+        list.forEach(System.out::println);
     }
 
 }
