@@ -1,6 +1,7 @@
 package com.zhs.demoes;
 
 import com.zhs.demoes.dao.ElasticRepository;
+import com.zhs.demoes.entity.Book;
 import com.zhs.demoes.entity.DocBean;
 import com.zhs.demoes.service.IElasticService;
 import org.junit.jupiter.api.Test;
@@ -30,9 +31,15 @@ class DemoEsApplicationTests {
             System.out.println(all.next());
         }
     }
+    @Test
+    public void testSave(){
+        elasticsearchRestTemplate.indexOps(Book.class).create();
+        elasticsearchRestTemplate.indexOps(Book.class).createMapping();
+    }
 
     @Test
     public void testCreateIndex(){
+
 
     }
 
