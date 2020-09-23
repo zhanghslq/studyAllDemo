@@ -1,6 +1,8 @@
 package com.zhs.demoes;
 
-import com.zhs.demoes.dao.ElasticRepository;
+import com.zhs.demoes.dao.BookRepository;
+import com.zhs.demoes.dao.DocBeanRepository;
+import com.zhs.demoes.entity.Book;
 import com.zhs.demoes.entity.DocBean;
 import com.zhs.demoes.service.IElasticService;
 import org.junit.jupiter.api.Test;
@@ -20,7 +22,10 @@ class DemoEsApplicationTests {
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
 
     @Autowired
-    private ElasticRepository elasticRepository;
+    private DocBeanRepository elasticRepository;
+
+    @Autowired
+    private BookRepository bookRepository;
 
 
     @Test
@@ -33,7 +38,10 @@ class DemoEsApplicationTests {
 
     @Test
     public void testCreateIndex(){
-
+        Book book = new Book();
+        book.setBookId(1);
+        book.setName("新华词典");
+        bookRepository.save(book);
     }
 
 }

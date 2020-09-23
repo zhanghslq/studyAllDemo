@@ -6,7 +6,7 @@ import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 
-public interface ElasticRepository extends ElasticsearchRepository<DocBean, Long> {
+public interface DocBeanRepository extends ElasticsearchRepository<DocBean, Long> {
 
     //默认的注释
     //@Query("{\"bool\" : {\"must\" : {\"field\" : {\"content\" : \"?\"}}}}")
