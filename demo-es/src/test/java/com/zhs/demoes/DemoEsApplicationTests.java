@@ -1,6 +1,7 @@
 package com.zhs.demoes;
 
-import com.zhs.demoes.dao.ElasticRepository;
+import com.zhs.demoes.dao.BookRepository;
+import com.zhs.demoes.dao.DocBeanRepository;
 import com.zhs.demoes.entity.Book;
 import com.zhs.demoes.entity.DocBean;
 import com.zhs.demoes.service.IElasticService;
@@ -21,7 +22,10 @@ class DemoEsApplicationTests {
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
 
     @Autowired
-    private ElasticRepository elasticRepository;
+    private DocBeanRepository elasticRepository;
+
+    @Autowired
+    private BookRepository bookRepository;
 
 
     @Test
@@ -31,16 +35,13 @@ class DemoEsApplicationTests {
             System.out.println(all.next());
         }
     }
-    @Test
-    public void testSave(){
-        elasticsearchRestTemplate.indexOps(Book.class).create();
-        elasticsearchRestTemplate.indexOps(Book.class).createMapping();
-    }
 
     @Test
     public void testCreateIndex(){
-
-
+        Book book = new Book();
+        book.setBookId(1);
+        book.setName("新华词典");
+        bookRepository.save(book);
     }
 
 }
