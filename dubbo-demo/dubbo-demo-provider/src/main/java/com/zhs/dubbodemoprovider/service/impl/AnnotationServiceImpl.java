@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * dubbo升级带来的换了注解，原来service注解已经过时
+ *
  * @author EDZ
  */
 @DubboService

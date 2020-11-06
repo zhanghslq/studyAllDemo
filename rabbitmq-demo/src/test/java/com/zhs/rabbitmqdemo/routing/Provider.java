@@ -8,6 +8,8 @@ import java.io.IOException;
 
 /**
  * 根据路由key来让交换机决定给哪些符合条件的队列发送消息
+ *
+ * direct不支持通配符，topic模式支持通配符
  * @author: zhs
  * @since: 2020/11/5 17:40
  */
