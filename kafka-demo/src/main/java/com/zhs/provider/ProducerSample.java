@@ -12,8 +12,10 @@ import java.util.concurrent.Future;
  */
 public class ProducerSample {
     private static String TOPIC_NAME = "zhs_topic";
-    public static void main(String[] args) {
-        produceSend();
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+
+//        produceSend();
+        produceSyncSendCallBack();
     }
     public static void produceSend(){
         Properties properties = new Properties();
@@ -84,8 +86,6 @@ public class ProducerSample {
                     System.out.println("partition:"+metadata.partition()+"offset:"+metadata.offset());
                 }
             });
-            RecordMetadata recordMetadata = send.get();
-            System.out.println("partition:"+recordMetadata.partition()+"offset:"+recordMetadata.offset());
         }
     }
 }
